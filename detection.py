@@ -9,38 +9,18 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-path = "./HandSignCNN_0.2Ver3.h5"
+path = "../ASL_ResNet50.h5"
 model = tf.keras.models.load_model(path)
 
 img = np.array([])
 cap = cv2.VideoCapture(0)
 
 def to_label(onehot):
-  label = [0,1,2,3,4,5,6,7,8,9,'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  label = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z','del','nothing','space']
   r = [label[i] for i in onehot.argmax(1)]
   return r
-  
-def get_bbox_coordinates(handLadmark, image_shape):
-    """ 
-    Get bounding box coordinates for a hand landmark.
-    Args:
-        handLadmark: A HandLandmark object.
-        image_shape: A tuple of the form (height, width).
-    Returns:
-        A tuple of the form (xmin, ymin, xmax, ymax).
-    """
-    all_x, all_y = [], [] # store all x and y points in list
-    for hnd in mp_hands.HandLandmark:
-        all_x.append(int(handLadmark.landmark[hnd].x * image_shape[1]) ) # multiply x by image width
-        all_y.append(int(handLadmark.landmark[hnd].y * image_shape[0]) ) # multiply y by image height
-    
-    x_min, y_min, x_max, y_max = min(all_x), min(all_y), max(all_x), max(all_y)
-    kw = int(0.1*( max(all_x) - min(all_x)))
-    kh = int(0.1*( max(all_y) -  min(all_y)))
-   
-    return x_min-kw, y_min-kh, x_max+kw, y_max+kh # return as (xmin, ymin, xmax, ymax)
-
 with mp_hands.Hands(
+    max_num_hands= 1,
     model_complexity=0,
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5) as hands:
@@ -65,8 +45,8 @@ with mp_hands.Hands(
 
     ### Landmark:
 
-    if results.multi_hand_landmarks:
-      for hand_landmarks in results.multi_hand_landmarks:
+    if results.hand_rects:
+      for hand_rect in results.hand_rects:
 
         # mp_drawing.draw_landmarks(
         #     image,
@@ -76,21 +56,24 @@ with mp_hands.Hands(
         #     mp_drawing_styles.get_default_hand_connections_style())
 
         ## Bouding box:
-        x_min, y_min, x_max, y_max = get_bbox_coordinates(hand_landmarks,(w,h))
+        x_cen = hand_rect.x_center*h
+        y_cen = hand_rect.y_center*w
+        scale_w = hand_rect.width * h
+        scale_h = hand_rect.height * w
       
-        cv2.rectangle(image, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
+        # x_min, y_min, x_max, y_max = 
+        # print(hand_rect)
+      
+        cv2.rectangle(image, (int(x_cen - scale_w/2),int( y_cen - scale_h/2)),(int(x_cen + scale_w/2), int(y_cen + scale_h/2)), (0, 255, 0), 2)
         
-        img = image[x_min:x_max,y_min:y_max].copy()
+        img = image[int(y_cen - scale_w/2): int(y_cen + scale_w/2), int(x_cen - scale_h/2): int( x_cen + scale_h/2)]
         if(np.array(img).size != 0):
+          cv2.imwrite('crop.jpeg', img)
           img = cv2.resize(img,(224,224))
+          img = img/255
           img = tf.expand_dims(img, axis=0)
-          output = '_'
           t = to_label(model.predict(img))
-          if(output!=t):
-            output = t
-            print(output[0])
-            
-        # cv2.imshow("Frame", image)
+          print(t)
     # Flip the image horizontally for a selfie-view display.
 
     cv2.imshow('MediaPipe Hands',image)
