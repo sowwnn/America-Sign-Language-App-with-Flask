@@ -72,9 +72,12 @@ with mp_hands.Hands(
           img = cv2.resize(img,(224,224))
           img = img/255
           img = tf.expand_dims(img, axis=0)
-          t = to_label(model.predict(img))
+          t = to_label(model.predict(img))[0]
           print(t)
+        
     # Flip the image horizontally for a selfie-view display.
+    cv2.rectangle(image, (0,0), (h,40), (255,0,0),-1)
+    cv2.putText(image, t, (int(h/2-4),40), fontFace=cv2.FONT_HERSHEY_SIMPLEX , fontScale=1, color=(255,255,255),lineType=cv2.LINE_AA)
 
     cv2.imshow('MediaPipe Hands',image)
 

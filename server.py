@@ -55,14 +55,6 @@ def gen():
 
             if results.hand_rects:
                 for hand_rect in results.hand_rects:
-
-                # mp_drawing.draw_landmarks(
-                #     image,
-                #     hand_landmarks,
-                #     mp_hands.HAND_CONNECTIONS,
-                #     mp_drawing_styles.get_default_hand_landmarks_style(),
-                #     mp_drawing_styles.get_default_hand_connections_style())
-
                 ## Bouding box:
                     x_cen = hand_rect.x_center*h
                     y_cen = hand_rect.y_center*w
@@ -85,7 +77,7 @@ def gen():
                 cv2.rectangle(image, (0,0), (h,40), (255,0,0),-1)
                 cv2.putText(image, t, (int(h/2-4),40), fontFace=cv2.FONT_HERSHEY_SIMPLEX , fontScale=1, color=(255,255,255),lineType=cv2.LINE_AA)
 
-                cv2.imwrite('demo.jpg', image)
+            cv2.imwrite('demo.jpg', image)
             yield (b'--image\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + open('demo.jpg', 'rb').read() + b'\r\n')
 
