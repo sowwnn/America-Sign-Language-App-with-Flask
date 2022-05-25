@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+    <!-- 
+    Section: #F9D348
+    Sub: #302BDC
+    BG: #FCF1E6
+    texxt: #11172D -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/static/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>Hello World!</title>
+
+    <!-- Import the webpage's stylesheet -->
+    <!-- <link rel="stylesheet" href="/style.css" /> -->
+  </head>
+
+  <body class="bg-[#FCF1E6]">
+    <!--
+      This is the body of the page
+      Look at the elements and see how they appear in the rendered page on the right
+      Each element is defined using tags, with < and > indicating where each one opens and closes
+      There are elements for sections of the page, images, text, and more
+      The elements include attributes referenced in the CSS for the page style
+    -->
+
+    <!-- The wrapper and content divs set margins and positioning -->
+    <div class="bg-[#F9D348] h-10"></div>
+    <nav>
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-10">
+        <div class="relative flex items-center justify-between h-20">
+          <div
+            class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+          >
+            <div class="flex-shrink-0 flex items-center">
+              <img
+                class="block lg:hidden h-12 w-auto"
+                src="./static/logo.svg"
+                alt="ASL"
+              />
+              <img
+                class="hidden lg:block h-12 w-auto"
+                src="./static/logo.svg"
+                alt="ASL"
+              />
+            </div>
+            <div class="hidden sm:block sm:ml-6 py-8">
+              <div class="flex space-x-6">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a
+                  href="{{ url_for('index') }}"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                  aria-current="page"
+                 
+                  >Demo</a
+                >
+
+                <a
+                  href="#"
+                  class="text-black-300 hover:underline decoration-4 hover:underline-offset-4 px-3 py-2 rounded-md text-base font-bold"
+                  >Team</a
+                >
+
+                <a
+                  href="#"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                  >Paper</a
+                >
+
+                <a
+                  href="#"
+                  class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                  >About us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Results -->
+
+    <div
+      class="flex flex-col w-10/12 h-auto md:h-[60rem] lg:h-[80] mx-auto mb-1/6"
+    >
+      <!--       row -->
+      <div class="flex h-[18rem] md:h-[25rem] lg:h-[40] justify-between">
+        <a
+          class="snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/hai.tranminh.75839"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17069605/media/2d421e467ca1a9c76a179beb38390e71.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17069605/media/870b9af269af1c4fa2ab2deef838a7c8.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17069605/media/ad756bf8fcfa01ea27afe8dc30e81880.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17069605/media/2d421e467ca1a9c76a179beb38390e71.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17069605/media/2d421e467ca1a9c76a179beb38390e71.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              Trần Minh Hải
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH110032
+            </p>
+          </div>
+          <div class="text-center text-lime-500">Actice</div>
+        </a>
+
+        <a
+          class="snap-start snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/rc.sho0/"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17132227/media/dd43a641fa225caaa7a0c249198293a8.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17132227/media/e1804772dbb2d27b4faf7cc3b210513e.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17132227/media/c6354c9c031e6852b6cb489c4c39ff8c.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17132227/media/dd43a641fa225caaa7a0c249198293a8.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17132227/media/dd43a641fa225caaa7a0c249198293a8.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              Võ Thành Hoàng Sơn
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH110660
+            </p>
+          </div>
+          <div class="text-center text-lime-500">Actice</div>
+        </a>
+
+        <!--           item -->
+        <a
+          class="snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/ZaQuyn"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17054114/media/c008d6b88fda777ef76b06a56679cadd.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17054114/media/b65e170511cbdaee4530979e3c619c35.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17054114/media/958f627519ae291c124cb20153020e2c.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17054114/media/c008d6b88fda777ef76b06a56679cadd.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17054114/media/c008d6b88fda777ef76b06a56679cadd.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              Nguyễn Gia Quyền
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH110923
+            </p>
+          </div>
+          <div class="text-center text-gray-500">Inactice</div>
+        </a>
+      </div>
+      <!--       row -->
+      <div class="flex h-[18rem] md:h-[25rem] lg:h-[40] justify-between">
+        <a
+          class="snap-start snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/nhatttdanggg"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17099951/media/fcb1027e35096565a678143f93c55e33.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17099951/media/4d79eee6caf5dab5f9e6e91081cfa1ba.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17099951/media/230e06169e16ee8a874a7d9d9a9986a8.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17099951/media/fcb1027e35096565a678143f93c55e33.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17099951/media/fcb1027e35096565a678143f93c55e33.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              Phạm Võ Nhật Đăng
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH110144
+            </p>
+          </div>
+          <div class="text-center text-lime-500">Actice</div>
+        </a>
+
+        <!--           item -->
+        <a
+          class="snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/profile.php?id=100059481963091"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17116621/media/9c6a9e9e7c2e476e7eb14ebda887cbfa.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17116621/media/bd512e5abcd9e17933994a82b7e9349a.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17116621/media/57689181716d8bc90b43170458d6a07d.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17116621/media/9c6a9e9e7c2e476e7eb14ebda887cbfa.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17116621/media/9c6a9e9e7c2e476e7eb14ebda887cbfa.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              Triệu Hoàng Phúc
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH111020
+            </p>
+          </div>
+          <div class="text-center text-gray-500">Inactice</div>
+        </a>
+
+        <a
+          class="snap-start w-1/3 lg:w-3/16 flex flex-col justify-between bg-white border-2 border-black p-2 md:p-4 md:pb-3 hover:shadow-[-8px_8px_0_0_rgba(0,0,0,255)] hover:translate-x-2 hover:-translate-y-2"
+          href="https://www.facebook.com/dat.laquoc.5"
+        >
+          <div>
+            <video
+              class="rounded-lg"
+              muted=""
+              loop=""
+              playsinline=""
+              autoplay=""
+              data-src="https://cdn.dribbble.com/users/721278/screenshots/17175440/media/c54288b4933392793f3a6bc126eaecdf.mp4"
+              data-video-small="https://cdn.dribbble.com/users/721278/screenshots/17175440/media/83ffbc48fefea29841d20ff006e1eddb.mp4"
+              data-video-medium="https://cdn.dribbble.com/users/721278/screenshots/17175440/media/8b9a89818ab88de5638517d08a51ba10.mp4"
+              data-video-large="https://cdn.dribbble.com/users/721278/screenshots/17175440/media/c54288b4933392793f3a6bc126eaecdf.mp4"
+              src="https://cdn.dribbble.com/users/721278/screenshots/17175440/media/c54288b4933392793f3a6bc126eaecdf.mp4"
+            ></video>
+          </div>
+          <div>
+            <p class="align-middle text-center text-2xl font-bold">
+              La Quốc Đạt
+            </p>
+            <p class="align-middle text-center text-xl font-normal">
+              19DH111071
+            </p>
+          </div>
+          <div class="text-center text-gray-500">Inactice</div>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

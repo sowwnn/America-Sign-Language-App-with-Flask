@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response,redirect
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -12,8 +12,8 @@ mp_hands = mp.solutions.hands
 
 path = "../ASL_ResNet50.h5"
 model = tf.keras.models.load_model(path)
+cap = None
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -26,12 +26,13 @@ def to_label(onehot):
 
 def gen(): 
     cap = cv2.VideoCapture(0)
+    t = ""
 
     with mp_hands.Hands(
         max_num_hands= 1,
         model_complexity=0,
-        min_detection_confidence=0.5,
-        min_tracking_confidence=0.5) as hands:
+        min_detection_confidence=.8,
+        min_tracking_confidence=.5) as hands:
         while cap.isOpened():
             success, image = cap.read()
             if not success:
@@ -75,20 +76,21 @@ def gen():
                         t = to_label(model.predict(img))[0]
                         print(t)
                 cv2.rectangle(image, (0,0), (h,40), (255,0,0),-1)
-                cv2.putText(image, t, (int(h/2-4),40), fontFace=cv2.FONT_HERSHEY_SIMPLEX , fontScale=1, color=(255,255,255),lineType=cv2.LINE_AA)
+                cv2.putText(image, t, (int(h/2-4),30), fontFace=cv2.FONT_HERSHEY_SIMPLEX , fontScale=1, color=(255,255,255),lineType=cv2.LINE_AA)
 
             cv2.imwrite('demo.jpg', image)
             yield (b'--image\r\n'
                     b'Content-Type: image/jpeg\r\n\r\n' + open('demo.jpg', 'rb').read() + b'\r\n')
+
 
 @app.route('/video_feed')
 def video_feed():
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=image')
 
-@app.route('/predict')
-def predict():
-    return Response(model.predict(img_in))
+@app.route('/team')
+def team():
+    return render_template('team.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

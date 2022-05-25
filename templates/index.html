@@ -55,8 +55,9 @@
                 class="text-black-300 hover:underline decoration-4 hover:underline-offset-4 px-3 py-2 rounded-md text-base font-bold"
                 aria-current="page">Demo</a>
 
-              <a href="#"
-                class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Team</a>
+              <a href="{{ url_for('team') }}"
+                class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
+                >Team</a>
 
               <a href="#"
                 class="text-black-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium">Paper</a>
@@ -71,14 +72,14 @@
     </div>
   </nav>
   <!-- Results -->
-  <div class="w-3/6 h-[38rem] flex flex-col justify-evenly mt-7 mx-auto my-auto bg-white border-2 border-black">
+  <div class="w-4/6 h-[40rem] flex flex-col justify-evenly mt-7 mx-auto my-auto bg-white border-2 border-black">
     <!-- Webcam -->
     <div class="pt-8 items-center">
       <img src="{{ url_for('video_feed') }}" width="100%" alt="webcam" class="w-5/6 h-[28rem] mx-auto rounded-lg" />
     </div>
 
-    <button class="rounded-none container text-white mx-auto w-4/6 bg-black hover:bg-[#302BDC] py-2
-                    ">REFRESH</button>
+    <button class="rounded-none container text-white mx-auto w-4/6 bg-black hover:bg-[#302BDC] py-2"
+              >REFRESH</button>
   </div>
 </body>
 
