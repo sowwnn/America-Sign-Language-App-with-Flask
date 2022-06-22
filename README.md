@@ -19,8 +19,8 @@
 ## How to run 🏃!!:
 * You must to have all src code:
 ```bash
-~ git clone https://github.com/RC-Sho0/ASL_web_demo.git
-~ cd ASL_web_demo
+~ git clone https://github.com/RC-Sho0/ASL-web-demo.git
+~ cd ASL-web-demo
 ```
 * Setup enviroment:
 ```bash
